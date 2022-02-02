@@ -79,23 +79,33 @@ local opts = {
 }
 
 local mappings = {
-  ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-  ["b"] = {
-    "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    "Buffers",
-  },
+  ["q"] = { "<cmd>Alpha<cr>", "Alpha" },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-  ["w"] = { "<cmd>w!<CR>", "Save" },
-  ["q"] = { "<cmd>q!<CR>", "Quit" },
-  ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+  ["x"] = { "<cmd>TroubleToggle<CR>", "Diagnostics" },
   ["f"] = {
     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
     "Find files",
   },
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-
+  w = {
+    name = "Window",
+    w = { "<cmd>wincmd w<CR>", "Next window" },
+    v = { "<cmd>wincmd v<CR>", "Vertical split" },
+    c = { "<cmd>wincmd c<CR>", "Close window" },
+    h = { "<cmd>wincmd h<CR>", "Go left" },
+    j = { "<cmd>wincmd j<CR>", "Go down" },
+    k = { "<cmd>wincmd k<CR>", "Go up" },
+    l = { "<cmd>wincmd l<CR>", "Go right" },
+  },
+  b = {
+    b = {
+        "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+        "Buffers",
+    },
+    c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+  },
   p = {
     name = "Packer",
     c = { "<cmd>PackerCompile<cr>", "Compile" },
@@ -128,15 +138,15 @@ local mappings = {
     },
   },
 
-  l = {
+  c = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
     d = {
-      "<cmd>Telescope lsp_document_diagnostics<cr>",
+      "<cmd>TroubleToggle document_diagnostics<cr>",
       "Document Diagnostics",
     },
-    w = {
-      "<cmd>Telescope lsp_workspace_diagnostics<cr>",
+    x = {
+      "<cmd>TroubleToggle workspace_diagnostics<cr>",
       "Workspace Diagnostics",
     },
     f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
