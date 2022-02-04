@@ -1,5 +1,14 @@
 local M = {}
 
+local function contains(table, val)
+   for i=1,#table do
+      if table[i] == val then 
+         return true
+      end
+   end
+   return false
+end
+
 -- TODO: backfill this to template
 M.setup = function()
   local signs = {
@@ -88,6 +97,9 @@ end
 
 M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
+    client.resolved_capabilities.document_formatting = false
+  end
+  if client.name == "gopls" then
     client.resolved_capabilities.document_formatting = false
   end
   lsp_keymaps(bufnr)
