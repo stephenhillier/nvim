@@ -214,6 +214,7 @@ local buttons = {
     dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
     dashboard.button("F", "  Find text", ":Telescope live_grep <CR>"),
     dashboard.button("n", "  New file", ":ene <BAR> startinsert <CR>"),
+    dashboard.button("p", "  Projects", ":Telescope projects<CR>"),
     dashboard.button("c", "  Configuration", ":e ~/.config/nvim/init.lua <CR>"),
     dashboard.button( "u", "  Update plugins" , ":PackerSync<CR>"),
     dashboard.button( "q", "  Quit" , ":qa<CR>"),

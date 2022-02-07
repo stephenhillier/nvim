@@ -109,6 +109,9 @@ return packer.startup(function(use)
   -- Dashboard
   use 'goolord/alpha-nvim'
 
+  -- Projects
+  use "ahmedkhalf/project.nvim"
+
   -- Tabout. Must be loaded after completion plugins
   --
   use "abecodes/tabout.nvim"

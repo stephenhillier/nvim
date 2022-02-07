@@ -5,9 +5,9 @@
 -- highlight groups are pulled from the current colorscheme applied. Check the
 -- file: `lua/eden/modules/ui/colors.lua` to see how they are defined.
 
-require('user.feline.colors')
+require('user.statusline.colors')
 
-local u = require("user.feline.util")
+local u = require("user.statusline.util")
 local fmt = string.format
 
 -- "┃", "█", "", "", "", "", "", "", "●"
