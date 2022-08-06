@@ -50,10 +50,10 @@ return packer.startup(function(use)
   use 'antoinemadec/FixCursorHold.nvim'
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
-  use "akinsho/bufferline.nvim"
+  use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
   use "moll/vim-bbye"
   use 'nvim-lualine/lualine.nvim'
-  use 'akinsho/toggleterm.nvim'
+  -- use 'akinsho/toggleterm.nvim'
   use "folke/which-key.nvim"
   use "ggandor/lightspeed.nvim"
   use 'simrat39/symbols-outline.nvim'
@@ -63,6 +63,7 @@ return packer.startup(function(use)
   }
   -- Color themes
   use 'EdenEast/nightfox.nvim'
+  use 'rebelot/kanagawa.nvim'
 
   -- Go
   use 'ray-x/go.nvim'
@@ -81,8 +82,9 @@ return packer.startup(function(use)
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- lsp
+  use { "williamboman/mason.nvim" }
+  use { "williamboman/mason-lspconfig.nvim" }
   use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use 'nvim-lua/lsp-status.nvim'
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "ray-x/lsp_signature.nvim"
@@ -104,13 +106,16 @@ return packer.startup(function(use)
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 
   -- Status line
-  use 'feline-nvim/feline.nvim'
+  -- use 'feline-nvim/feline.nvim'
 
   -- Dashboard
   use 'goolord/alpha-nvim'
 
   -- Projects
   use "ahmedkhalf/project.nvim"
+
+  -- Terminal
+  use { "akinsho/toggleterm.nvim", tag = 'v2.*' }
 
   -- Tabout. Must be loaded after completion plugins
   --
