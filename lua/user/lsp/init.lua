@@ -1,27 +1,49 @@
-local status_ok, _ = pcall(require, "lspconfig")
+local status_ok, lsp = pcall(require, "lsp-zero")
 if not status_ok then
   return
 end
-require("mason").setup({
-    ui = {
-        icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-        }
-    }
+
+local null_ls_status_ok, null_ls = pcall(require, "null-ls")
+if not null_ls_status_ok then
+	return
+end
+
+lsp.preset('recommended')
+
+-- Null LS setup
+
+local formatting = null_ls.builtins.formatting
+local diagnostics = null_ls.builtins.diagnostics
+
+
+local null_opts = lsp.build_options('null-ls', {
+  on_attach = function(client)
+    if client.resolved_capabilities.document_formatting then
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        desc = "Auto format before save",
+        pattern = "<buffer>",
+        callback = vim.lsp.buf.formatting_sync,
+      })
+    end
+  end
 })
 
-local mason_lspconfig = require("mason-lspconfig")
-mason_lspconfig.setup()
-mason_lspconfig.setup_handlers({
-  function (server_name) -- default handler (optional)
-    require("lspconfig")[server_name].setup {}
-  end,
+null_ls.setup({
+  on_attach = null_opts.on_attach,
+	debug = false,
+	sources = {
+		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
+		formatting.black.with({ extra_args = { "--fast" } }),
+		formatting.stylua,
+    formatting.gofmt,
+    diagnostics.golangci_lint,
+    diagnostics.flake8
+	},
 })
 
--- require "user.lsp.lsp-installer"
-require("user.lsp.handlers").setup()
--- require "user.lsp.null-ls"
+-- LSP setup
 
+lsp.setup()
+
+-- allows displaying function signatures while typing out the arguments
 require("lsp_signature").setup()

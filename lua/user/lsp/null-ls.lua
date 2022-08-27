@@ -16,6 +16,6 @@ null_ls.setup({
 		formatting.stylua,
     formatting.gofmt,
     diagnostics.golangci_lint,
-    -- diagnostics.flake8
+    diagnostics.flake8
 	},
 })
