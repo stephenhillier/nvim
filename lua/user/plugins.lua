@@ -60,7 +60,9 @@ return packer.startup(function(use)
   }
   -- Color themes
   use 'EdenEast/nightfox.nvim'
-  use 'rebelot/kanagawa.nvim'
+
+  -- replacement inputs
+  use {'stevearc/dressing.nvim'}
 
   -- Go
   use 'ray-x/go.nvim'
@@ -130,8 +132,6 @@ return packer.startup(function(use)
   -- Dashboard
   use 'goolord/alpha-nvim'
 
-  -- Projects
-  use "ahmedkhalf/project.nvim"
 
   -- Terminal
   use { "akinsho/toggleterm.nvim", tag = 'v2.*' }
