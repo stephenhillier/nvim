@@ -48,12 +48,9 @@ return packer.startup(function(use)
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "numToStr/Comment.nvim" -- Easily comment stuff
   use 'antoinemadec/FixCursorHold.nvim'
-  use "kyazdani42/nvim-web-devicons"
-  use "kyazdani42/nvim-tree.lua"
   use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
   use "moll/vim-bbye"
   use 'nvim-lualine/lualine.nvim'
-  -- use 'akinsho/toggleterm.nvim'
   use "folke/which-key.nvim"
   use "ggandor/lightspeed.nvim"
   use 'simrat39/symbols-outline.nvim'
@@ -102,6 +99,14 @@ return packer.startup(function(use)
     }
   }
 
+  -- file explorer
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    },
+    tag = 'nightly' -- optional, updated every week. (see issue #1193)
+  }
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
@@ -130,6 +135,12 @@ return packer.startup(function(use)
 
   -- Terminal
   use { "akinsho/toggleterm.nvim", tag = 'v2.*' }
+
+  -- Outline
+  use {
+    'stevearc/aerial.nvim',
+    config = function() require('aerial').setup() end
+  }
 
   -- Tabout. Must be loaded after completion plugins
   --

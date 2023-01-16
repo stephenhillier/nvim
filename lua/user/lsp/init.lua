@@ -5,7 +5,7 @@ end
 
 local null_ls_status_ok, null_ls = pcall(require, "null-ls")
 if not null_ls_status_ok then
-	return
+  return
 end
 
 lsp.preset('recommended')
@@ -18,7 +18,7 @@ local diagnostics = null_ls.builtins.diagnostics
 
 local null_opts = lsp.build_options('null-ls', {
   on_attach = function(client)
-    if client.resolved_capabilities.document_formatting then
+    if client.server_capabilities.documentFormattingProvider then
       vim.api.nvim_create_autocmd("BufWritePre", {
         desc = "Auto format before save",
         pattern = "<buffer>",
@@ -30,15 +30,15 @@ local null_opts = lsp.build_options('null-ls', {
 
 null_ls.setup({
   on_attach = null_opts.on_attach,
-	debug = false,
-	sources = {
-		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
-		formatting.black.with({ extra_args = { "--fast" } }),
-		formatting.stylua,
-    formatting.gofmt,
+  debug = false,
+  sources = {
+    formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
+    formatting.black.with({ extra_args = { "--fast" } }),
+    --[[ formatting.stylua, ]]
+    --[[ formatting.gofmt, ]]
     diagnostics.golangci_lint,
     diagnostics.flake8
-	},
+  },
 })
 
 -- LSP setup

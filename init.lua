@@ -9,7 +9,7 @@ require "user.treesitter"
 require "user.gitsigns"
 require "user.autopairs"
 require "user.comment"
--- require "user.nvim-tree"
+require "user.nvim-tree"
 require "user.bufferline"
 -- require 'user.statusline'
 require "user.toggleterm"
