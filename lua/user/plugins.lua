@@ -50,7 +50,7 @@ return packer.startup(function(use)
   use 'antoinemadec/FixCursorHold.nvim'
   use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
   use "moll/vim-bbye"
-  use 'nvim-lualine/lualine.nvim'
+  -- use 'nvim-lualine/lualine.nvim'
   use "folke/which-key.nvim"
   use "ggandor/lightspeed.nvim"
   use 'simrat39/symbols-outline.nvim'
@@ -127,7 +127,7 @@ return packer.startup(function(use)
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 
   -- Status line
-  -- use 'feline-nvim/feline.nvim'
+  use 'feline-nvim/feline.nvim'
 
   -- Dashboard
   use 'goolord/alpha-nvim'
@@ -141,6 +141,16 @@ return packer.startup(function(use)
     'stevearc/aerial.nvim',
     config = function() require('aerial').setup() end
   }
+
+  -- Note taking
+  use {
+  'phaazon/mind.nvim',
+  branch = 'v2.2',
+  requires = { 'nvim-lua/plenary.nvim' },
+  config = function()
+    require'mind'.setup()
+  end
+}
 
   -- Tabout. Must be loaded after completion plugins
   --

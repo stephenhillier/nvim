@@ -11,12 +11,11 @@ require "user.autopairs"
 require "user.comment"
 require "user.nvim-tree"
 require "user.bufferline"
--- require 'user.statusline'
+require 'user.statusline'
 require "user.toggleterm"
 require "user.trouble"
 require "user.whichkey"
 require "user.dashboard"
 require "user.lang.golang"
 require "user.neogit"
-require "user.projects"
 -- require "user.tabout"
