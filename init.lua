@@ -18,4 +18,6 @@ require "user.whichkey"
 require "user.dashboard"
 require "user.lang.golang"
 require "user.neogit"
+require "user.copilot"
 -- require "user.tabout"
+

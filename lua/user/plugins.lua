@@ -142,15 +142,8 @@ return packer.startup(function(use)
     config = function() require('aerial').setup() end
   }
 
-  -- Note taking
-  use {
-  'phaazon/mind.nvim',
-  branch = 'v2.2',
-  requires = { 'nvim-lua/plenary.nvim' },
-  config = function()
-    require'mind'.setup()
-  end
-}
+  -- Github Copilot
+  use 'github/copilot.vim'
 
   -- Tabout. Must be loaded after completion plugins
   --

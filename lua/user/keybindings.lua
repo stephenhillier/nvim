@@ -7,7 +7,6 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
 --   visual_mode = "v",
@@ -63,3 +62,8 @@ keymap('n', '<leader>o', '<cmd>AerialToggle!<CR>', opts)
 --keymap("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>", opts)
 --keymap("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", opts)
 --keymap("n", "gR", "<cmd>Trouble lsp_references<cr>", opts)
+-- copilot
+keymap("i", "<C-CR>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+keymap("i", "<C-k>", 'copilot#Previous()', { noremap = true, silent = true, expr = true })
+keymap("i", "<C-j>", 'copilot#Next()', { noremap = true, silent = true, expr = true })
+
