@@ -64,6 +64,6 @@ keymap('n', '<leader>o', '<cmd>AerialToggle!<CR>', opts)
 --keymap("n", "gR", "<cmd>Trouble lsp_references<cr>", opts)
 -- copilot
 keymap("i", "<C-CR>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
-keymap("i", "<C-k>", 'copilot#Previous()', { noremap = true, silent = true, expr = true })
-keymap("i", "<C-j>", 'copilot#Next()', { noremap = true, silent = true, expr = true })
+keymap("i", "<C-p>", 'copilot#Previous()', { noremap = true, silent = true, expr = true })
+keymap("i", "<C-n>", 'copilot#Next()', { noremap = true, silent = true, expr = true })
 
